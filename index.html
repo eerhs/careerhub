@@ -15,13 +15,15 @@
       <div class="school-chip"><span class="school-seal">I</span><span>ILLINOIS TECH<br><small>STUDENT CAREER HUB</small></span></div>
       <div class="nav-label">WORKSPACE</div>
       <nav class="main-nav">
-        <button class="nav-item active" data-page="overview"><span class="nav-icon">⌂</span> Overview</button>
-        <button class="nav-item" data-page="pathway"><span class="nav-icon">◎</span> My pathway <span class="nav-count">3</span></button>
-        <button class="nav-item" data-page="events"><span class="nav-icon">▦</span> Events</button>
-        <button class="nav-item" data-page="handshake"><span class="nav-icon">↗</span> Handshake <span class="external">↗</span></button>
+        <button class="nav-item active" data-page="overview" aria-label="Overview" title="Overview"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-item" data-page="pathway" aria-label="My pathway" title="My pathway"><span class="nav-icon">◎</span> My pathway <span class="nav-count">3</span></button>
+        <button class="nav-item" data-page="applications" aria-label="Applications" title="Applications"><span class="nav-icon">▤</span> Applications</button>
+        <button class="nav-item" data-page="events" aria-label="Events" title="Events"><span class="nav-icon">▦</span> Events</button>
+        <button class="nav-item" data-page="support" aria-label="Career support" title="Career support"><span class="nav-icon">✦</span> Career support</button>
+        <button class="nav-item" data-page="handshake" aria-label="Handshake opportunities" title="Handshake opportunities"><span class="nav-icon">↗</span> Opportunities <span class="external">↗</span></button>
       </nav>
       <div class="sidebar-bottom">
-        <div class="help-card"><div class="help-icon">✦</div><strong>Need a little direction?</strong><p>Career Services can help you figure out your next step.</p><a href="#" class="text-link">Explore support <span>→</span></a></div>
+        <div class="help-card"><div class="help-icon">✦</div><strong>Need a little direction?</strong><p>Career Services can help you figure out your next step.</p><button class="text-link" data-goto="support">Explore support <span>→</span></button></div>
         <div class="sidebar-user"><div class="avatar small">AM</div><div><strong>John John</strong><small>Computer Science</small></div><span class="more">···</span></div>
       </div>
     </aside>
@@ -68,7 +70,7 @@
         </div>
         <div class="bottom-grid">
           <div class="panel next-card"><div class="card-heading"><div><div class="eyebrow">UP NEXT</div><h3>Your recommended next steps</h3></div><span class="small-badge">PERSONALIZED</span></div>
-            <div class="task-row"><div class="task-symbol violet">▤</div><div class="task-content"><strong>Book a resume review</strong><p>Get feedback before the Fall Career Fair.</p><small>CAREER PREPARATION · 20 MIN</small></div><button class="round-arrow" data-goto="pathway">→</button></div>
+            <div class="task-row"><div class="task-symbol violet">▤</div><div class="task-content"><strong>Book a resume review</strong><p>Get feedback before the Fall Career Fair.</p><small>CAREER PREPARATION · 20 MIN</small></div><button class="round-arrow" data-goto="support" aria-label="Book a resume review">→</button></div>
             <div class="task-row"><div class="task-symbol orange">♧</div><div class="task-content"><strong>Prepare your recruiter introduction</strong><p>Practice a concise 30-second introduction.</p><small>CAREER FAIR READY · 15 MIN</small></div><button class="round-arrow" data-goto="pathway">→</button></div>
           </div>
           <div class="panel event-preview"><div class="card-heading"><div><div class="eyebrow">DON'T MISS</div><h3>Coming up</h3></div><button class="plain-arrow" data-goto="events">All events →</button></div>
@@ -85,7 +87,7 @@
             <div class="timeline-items"><div class="path-step completed"><span class="step-check">✓</span><div><strong>Explore career paths in computer science</strong><p>Compare software, data, and AI engineering roles.</p><small>COMPLETED · SEP 12</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Identify your strongest technical skills</strong><p>Document your experience with Python, Java, and SQL.</p><small>COMPLETED · SEP 18</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Update your resume</strong><p>Highlight projects, impact, and technical skills.</p><small>COMPLETED · OCT 02</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Create or refresh your Handshake profile</strong><p>Add your resume, interests, and experience.</p><small>COMPLETED · OCT 08</small></div><span class="step-status">Done</span></div></div>
           </div>
           <div class="timeline-group"><div class="timeline-heading"><span class="timeline-dot current"></span><div><span class="eyebrow">PHASE 02 · IN PROGRESS</span><h3>Get career fair ready</h3></div><span class="phase-count">2 / 4</span></div>
-            <div class="timeline-items"><div class="path-step completed"><span class="step-check">✓</span><div><strong>Research employers hiring CS students</strong><p>Review roles, skills, and major eligibility before attending.</p><small>COMPLETED · OCT 22</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Save relevant employers at the career fair</strong><p>Build a shortlist of employers to visit.</p><small>COMPLETED · OCT 27</small></div><span class="step-status">Done</span></div><div class="path-step active-step"><span class="step-number">6</span><div><strong>Book a resume review with Career Services</strong><p>Have an advisor review your resume before the fair.</p><small>RECOMMENDED NEXT · 20 MIN</small></div><button class="mini-action">Find a time ↗</button></div><div class="path-step"><span class="step-number">7</span><div><strong>Practice your recruiter introduction</strong><p>Prepare a short introduction and 2–3 questions.</p><small>15 MIN · SELF-PACED</small></div><span class="step-status">To do</span></div></div>
+            <div class="timeline-items"><div class="path-step completed"><span class="step-check">✓</span><div><strong>Research employers hiring CS students</strong><p>Review roles, skills, and major eligibility before attending.</p><small>COMPLETED · OCT 22</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Save relevant employers at the career fair</strong><p>Build a shortlist of employers to visit.</p><small>COMPLETED · OCT 27</small></div><span class="step-status">Done</span></div><div class="path-step active-step"><span class="step-number">6</span><div><strong>Book a resume review with Career Services</strong><p>Have an advisor review your resume before the fair.</p><small>RECOMMENDED NEXT · 20 MIN</small></div><button class="mini-action" data-goto="support">Find a time ↗</button></div><div class="path-step"><span class="step-number">7</span><div><strong>Practice your recruiter introduction</strong><p>Prepare a short introduction and 2–3 questions.</p><small>15 MIN · SELF-PACED</small></div><span class="step-status">To do</span></div></div>
           </div>
           <div class="timeline-group"><div class="timeline-heading"><span class="timeline-dot upcoming"></span><div><span class="eyebrow">PHASE 03 · UP NEXT</span><h3>Apply & interview</h3></div><span class="phase-count">0 / 4</span></div>
             <div class="timeline-items"><div class="path-step"><span class="step-number">8</span><div><strong>Build a targeted internship application list</strong><p>Prioritize roles that match your skills and interests.</p><small>45 MIN</small></div><span class="step-status">To do</span></div><div class="path-step"><span class="step-number">9</span><div><strong>Complete a technical interview practice session</strong><p>Practice problem solving and explaining your approach.</p><small>45–60 MIN</small></div><span class="step-status">To do</span></div><div class="path-step"><span class="step-number">10</span><div><strong>Connect with alumni or industry professionals</strong><p>Start two conversations related to your career interests.</p><small>ONGOING</small></div><span class="step-status">To do</span></div><div class="path-step"><span class="step-number">11</span><div><strong>Submit internship applications</strong><p>Track deadlines and follow up on applications.</p><small>ONGOING</small></div><span class="step-status">To do</span></div></div>
@@ -127,6 +129,73 @@
         <div class="panel fair-route"><div><div class="eyebrow">SUGGESTED GAME PLAN</div><h3>Make your 4 hours count</h3></div><div class="route-steps"><div><span>01</span><strong>Start with your top 2</strong><small>11:00 – 11:45 AM</small></div><div><span>02</span><strong>Explore adjacent roles</strong><small>11:45 AM – 12:45 PM</small></div><div><span>03</span><strong>Meet new employers</strong><small>12:45 – 2:00 PM</small></div><div><span>04</span><strong>Follow up & take notes</strong><small>2:00 – 3:00 PM</small></div></div></div>
       </section>
 
+      <section class="page" id="page-applications">
+        <div class="page-intro"><div><div class="eyebrow">KEEP YOUR SEARCH ON TRACK</div><h1>Application tracker</h1><p class="subhead">Organize opportunities and keep your next follow-up in view.</p></div><button class="primary-button" id="open-application-modal">＋ Add application</button></div>
+        <div class="application-summary-grid">
+          <div class="panel application-stat"><span>In progress</span><strong id="application-active-count">0</strong><small>Saved, applied, or interviewing</small></div>
+          <div class="panel application-stat"><span>Interviews</span><strong id="application-interview-count">0</strong><small>Keep preparing and following up</small></div>
+          <div class="panel application-stat"><span>Offers</span><strong id="application-offer-count">0</strong><small>Celebrate your progress</small></div>
+        </div>
+        <div class="application-toolbar panel"><div><h2>Your applications</h2><p class="muted">Sample entries are saved in this browser for the prototype.</p></div><div class="application-filters" role="group" aria-label="Filter applications">
+          <button class="application-filter active" type="button" data-application-filter="all">All</button>
+          <button class="application-filter" type="button" data-application-filter="active">In progress</button>
+          <button class="application-filter" type="button" data-application-filter="Interview">Interviews</button>
+          <button class="application-filter" type="button" data-application-filter="Offer">Offers</button>
+          <button class="application-filter" type="button" data-application-filter="Not selected">Closed</button>
+        </div></div>
+        <div class="application-list" id="application-list" aria-live="polite"></div>
+      </section>
+
+      <section class="page" id="page-support">
+        <div class="page-intro"><div><div class="eyebrow">CAREER SERVICES · SKILLS · COMMUNITY</div><h1>Career support</h1><p class="subhead">Build confidence with practical resources, an advisor, and people who have been in your shoes.</p></div></div>
+        <div class="support-overview-grid">
+          <div class="panel support-card">
+            <div class="eyebrow">SKILLS TO GROW</div><h2>Build toward your software engineering goal</h2><p class="muted">A sample comparison based on your profile and target role—not an employer score.</p>
+            <div class="skill-match-list">
+              <div class="skill-match-row"><div><strong>Python</strong><small>Already in your profile</small></div><span class="skill-state matched">On profile</span></div>
+              <div class="skill-match-row"><div><strong>Data structures & algorithms</strong><small>Practice for technical interviews</small></div><span class="skill-state suggested">Strengthen</span></div>
+              <div class="skill-match-row"><div><strong>Testing & CI</strong><small>Useful for production software teams</small></div><button class="skill-plan-button" type="button" data-skill-action="Testing & CI">＋ Add to plan</button></div>
+              <div class="skill-match-row"><div><strong>Cloud deployment</strong><small>Show how your projects run in practice</small></div><button class="skill-plan-button" type="button" data-skill-action="Cloud deployment">＋ Add to plan</button></div>
+            </div>
+            <p class="skill-plan-status" id="skill-plan-status" aria-live="polite">Your focus plan is saved in this browser.</p>
+          </div>
+          <div class="panel support-card resource-card">
+            <div class="eyebrow">RESUME & PORTFOLIO</div><h2>Make your work easy to understand</h2><p class="muted">Short checklists to help you get application-ready.</p>
+            <details class="resource-details"><summary>Resume review checklist</summary><div class="resource-checklist">
+              <label><input type="checkbox" data-resource-check="resume-impact"> Describe project outcomes with specific results</label>
+              <label><input type="checkbox" data-resource-check="resume-skills"> Match skills to the role you want</label>
+              <label><input type="checkbox" data-resource-check="resume-proofread"> Check links, dates, and formatting</label>
+            </div></details>
+            <details class="resource-details"><summary>Project portfolio checklist</summary><div class="resource-checklist">
+              <label><input type="checkbox" data-resource-check="portfolio-readme"> Add a clear README and setup steps</label>
+              <label><input type="checkbox" data-resource-check="portfolio-demo"> Include screenshots or a working demo</label>
+              <label><input type="checkbox" data-resource-check="portfolio-role"> Explain your contribution and decisions</label>
+            </div></details>
+            <button class="outline-button" type="button" data-goto="events">Find a resume workshop →</button>
+          </div>
+        </div>
+        <div class="support-lower-grid">
+          <div class="panel support-card appointment-card">
+            <div class="eyebrow">MEET WITH CAREER SERVICES</div><h2>Request an appointment</h2><p class="muted">Choose a topic and a time that works. This prototype saves a request locally; it does not reserve a real appointment.</p>
+            <form id="appointment-form" class="support-form">
+              <label for="appointment-topic">What would you like help with?</label>
+              <select id="appointment-topic" name="topic" required><option value="Resume review">Resume review</option><option value="Interview practice">Interview practice</option><option value="Career planning">Career planning</option><option value="Internship search">Internship search</option></select>
+              <div class="appointment-fields"><div><label for="appointment-date">Preferred date</label><input id="appointment-date" name="date" type="date" required></div><div><label for="appointment-time">Preferred time</label><select id="appointment-time" name="time" required><option value="10:00 AM">10:00 AM</option><option value="11:30 AM">11:30 AM</option><option value="1:00 PM">1:00 PM</option><option value="2:30 PM">2:30 PM</option></select></div></div>
+              <button class="primary-button" type="submit">Save appointment request →</button>
+            </form>
+            <div class="appointment-confirmation" id="appointment-confirmation" aria-live="polite"></div>
+          </div>
+          <div class="panel support-card alumni-card">
+            <div class="eyebrow">LEARN FROM ALUMNI</div><h2>People who can help you explore</h2><p class="muted">Illustrative alumni profiles. Draft a note to start a conversation—no message is sent from this prototype.</p>
+            <div class="alumni-list">
+              <article class="alumni-row"><div class="alumni-avatar">MP</div><div><strong>Maya Patel</strong><span>Software Engineer · Class of 2021</span><small>Backend systems · Interview prep</small></div><button class="outline-button mentor-draft" type="button" data-mentor-name="Maya Patel" data-mentor-focus="backend engineering">Draft intro</button></article>
+              <article class="alumni-row"><div class="alumni-avatar">JR</div><div><strong>Jordan Rivera</strong><span>ML Engineer · Class of 2019</span><small>Machine learning · Early-career advice</small></div><button class="outline-button mentor-draft" type="button" data-mentor-name="Jordan Rivera" data-mentor-focus="machine learning">Draft intro</button></article>
+              <article class="alumni-row"><div class="alumni-avatar">AL</div><div><strong>Alex Lee</strong><span>Technical Recruiter · Class of 2020</span><small>Internship search · Resumes</small></div><button class="outline-button mentor-draft" type="button" data-mentor-name="Alex Lee" data-mentor-focus="internship applications">Draft intro</button></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="page" id="page-handshake">
         <div class="page-intro"><div><div class="eyebrow">YOUR OPPORTUNITY FEED</div><h1>Handshake snapshot</h1><p class="subhead">A quick view of updates and roles worth exploring. Continue in Handshake to apply.</p></div><button class="primary-button" id="handshake-link">Open Handshake ↗</button></div>
         <div class="handshake-summary"><div class="panel hs-welcome"><h2>Your next step<br>could be one click away.</h2><p>Opportunities selected around your Computer Science background and software & AI interests.</p><button class="light-button" id="hs-open-2">Go to Handshake ↗</button></div><div class="panel notification-panel"><div class="card-heading"><div><div class="eyebrow">RECENT ACTIVITY</div><h3>Notifications</h3></div><span class="unread-pill">3 NEW</span></div><div class="notification-row"><span class="notif-icon blue-bg">✉</span><div><strong>Application viewed</strong><p>Your application for Software Intern was viewed.</p><small>2 hours ago</small></div><i class="unread-dot"></i></div><div class="notification-row"><span class="notif-icon purple-bg">☆</span><div><strong>New employer match</strong><p>Vertex AI Labs posted a role matching your interests.</p><small>Yesterday</small></div><i class="unread-dot"></i></div><div class="notification-row"><span class="notif-icon orange-bg">◷</span><div><strong>Upcoming event reminder</strong><p>Fall 2026 Career Fair is coming up next week.</p><small>Oct 29</small></div></div><button class="text-link" id="all-notifications">View all notifications →</button></div></div>
@@ -145,6 +214,30 @@
     </main>
   </div>
 
+  <div class="modal-backdrop" id="application-modal">
+    <div class="modal panel application-modal" role="dialog" aria-modal="true" aria-labelledby="application-modal-title">
+      <button class="modal-close" type="button" data-close-application aria-label="Close">×</button>
+      <div class="eyebrow">APPLICATION TRACKER</div><h2 id="application-modal-title">Add an application</h2><p class="muted">Keep your opportunity details in one place.</p>
+      <form id="application-form">
+        <div class="form-group"><label for="application-company">Company</label><input id="application-company" name="company" required maxlength="80" placeholder="Company name"></div>
+        <div class="form-group"><label for="application-role">Role</label><input id="application-role" name="role" required maxlength="100" placeholder="e.g. Software Engineering Intern"></div>
+        <div class="form-group"><label for="application-location">Location</label><input id="application-location" name="location" maxlength="80" placeholder="City, remote, or hybrid"></div>
+        <div class="appointment-fields">
+          <div class="form-group"><label for="application-status">Status</label><select id="application-status" name="status"><option>Saved</option><option>Applied</option><option>Interview</option><option>Offer</option><option>Not selected</option></select></div>
+          <div class="form-group"><label for="application-deadline">Follow-up date</label><input id="application-deadline" name="deadline" type="date"></div>
+        </div>
+        <div class="modal-actions"><button class="outline-button" type="button" data-close-application>Cancel</button><button class="primary-button" type="submit">Save application</button></div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="mentor-modal">
+    <div class="modal panel mentor-modal" role="dialog" aria-modal="true" aria-labelledby="mentor-modal-title">
+      <button class="modal-close" type="button" data-close-mentor aria-label="Close">×</button>
+      <div class="eyebrow">ALUMNI INTRODUCTION</div><h2 id="mentor-modal-title">Draft a message</h2><p class="muted">Personalize this note before sending it through your preferred channel.</p>
+      <label class="mentor-message-label" for="mentor-message">Message draft</label><textarea id="mentor-message" rows="7"></textarea>
+      <div class="modal-actions"><button class="outline-button" type="button" data-close-mentor>Close</button><button class="primary-button" type="button" id="select-mentor-message">Select message to copy</button></div>
+    </div>
+  </div>
   <div class="modal-backdrop" id="survey-modal">
     <div class="modal panel"><button class="modal-close" data-close>×</button><div class="eyebrow">PERSONALIZE YOUR PATHWAY · 2 MIN</div><h2>Let's make this yours.</h2><p class="muted">A few quick details help us recommend relevant events, resources, and opportunities.</p><div class="form-group"><label>What are you most interested in?</label><div class="choice-grid"><button class="choice selected">Software engineering</button><button class="choice">AI / Machine learning</button><button class="choice">Data engineering</button><button class="choice">Cybersecurity</button></div></div><div class="form-group"><label>What would you like help with next?</label><select><option>Finding an internship</option><option>Building technical skills</option><option>Resume and interview preparation</option><option>Exploring career options</option></select></div><div class="form-group"><label>What skills do you want to highlight?</label><input value="Python, Java, SQL, Machine Learning" /></div><div class="modal-actions"><button class="outline-button" data-close>Maybe later</button><button class="primary-button" id="save-survey">Save my preferences →</button></div></div>
   </div>

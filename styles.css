@@ -19,7 +19,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: "DM Sans",sans-serif;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 button,input,select {
@@ -2225,6 +2225,439 @@ h3 {
 
 .school-chip, .nav-item:hover, .help-card, .directory-card {
   background: #f3f3f3;
+}
+
+.sidebar {
+  overflow-y: auto;
+}
+
+.application-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.application-stat {
+  padding: 18px 20px;
+  display: grid;
+  gap: 5px;
+}
+
+.application-stat span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.application-stat strong {
+  font: 800 25px Manrope,sans-serif;
+}
+
+.application-stat small,.application-details small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.application-toolbar {
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 13px;
+}
+
+.application-toolbar h2 {
+  margin-bottom: 3px;
+}
+
+.application-toolbar p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.application-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.application-filter {
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.application-filter.active {
+  border-color: #f1cbd2;
+  background: var(--lav);
+  color: var(--purple-dark);
+}
+
+.application-list {
+  display: grid;
+  gap: 10px;
+}
+
+.application-card {
+  padding: 17px;
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr) 160px;
+  align-items: center;
+  gap: 14px;
+}
+
+.application-logo {
+  background: #f9e9ec;
+  color: var(--purple-dark);
+}
+
+.application-details {
+  min-width: 0;
+}
+
+.application-details h3 {
+  margin: 5px 0 3px;
+}
+
+.application-details p {
+  color: #565b70;
+  font-size: 12px;
+  margin: 0 0 5px;
+}
+
+.application-status-tag {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: #f3f3f3;
+  color: #565b70;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.application-status-select,.support-form select,.support-form input,.modal input,.mentor-modal textarea {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.application-status-select {
+  width: 100%;
+  padding: 9px;
+  font-size: 12px;
+}
+
+.application-empty {
+  padding: 28px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+.support-overview-grid,.support-lower-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.support-overview-grid {
+  grid-template-columns: 1.05fr .95fr;
+}
+
+.support-lower-grid {
+  grid-template-columns: .9fr 1.1fr;
+}
+
+.support-card {
+  padding: 22px;
+}
+
+.support-card h2 {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.support-card>p {
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.skill-match-list {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.skill-match-row {
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-match-row strong,.skill-match-row small {
+  display: block;
+}
+
+.skill-match-row strong {
+  font-size: 12px;
+}
+
+.skill-match-row small {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.skill-state,.skill-plan-button {
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.skill-state {
+  color: #555;
+}
+
+.skill-state.matched {
+  color: #257653;
+}
+
+.skill-state.suggested {
+  color: #9a5c14;
+}
+
+.skill-plan-button {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: white;
+  color: var(--purple-dark);
+  padding: 8px 9px;
+}
+
+.skill-plan-status {
+  color: var(--muted);
+  font-size: 11px !important;
+  margin: 12px 0 0;
+}
+
+.resource-details {
+  border-top: 1px solid var(--line);
+}
+
+.resource-details:last-of-type {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.resource-details summary {
+  cursor: pointer;
+  padding: 14px 2px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.resource-checklist {
+  display: grid;
+  gap: 11px;
+  padding: 0 2px 15px;
+}
+
+.resource-checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #565b70;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.resource-checklist input {
+  margin: 1px 0 0;
+  accent-color: var(--purple);
+}
+
+.support-form {
+  display: grid;
+  gap: 9px;
+}
+
+.support-form label,.mentor-message-label {
+  color: #565b70;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.support-form select,.support-form input {
+  width: 100%;
+  min-height: 39px;
+  padding: 9px 10px;
+  font-size: 12px;
+}
+
+.appointment-fields {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 10px;
+}
+
+.appointment-fields>div {
+  min-width: 0;
+}
+
+.support-form .primary-button {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.appointment-confirmation {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #333;
+  font-size: 11px;
+}
+
+.appointment-confirmation:empty {
+  display: none;
+}
+
+.appointment-confirmation p {
+  color: #565b70;
+  line-height: 1.5;
+  margin: 5px 0 0;
+}
+
+.alumni-list {
+  display: grid;
+  margin-top: 14px;
+}
+
+.alumni-row {
+  display: grid;
+  grid-template-columns: 38px minmax(0,1fr) auto;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.alumni-avatar {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f9e9ec;
+  color: var(--purple-dark);
+  font: 700 11px Manrope,sans-serif;
+}
+
+.alumni-row strong,.alumni-row span,.alumni-row small {
+  display: block;
+}
+
+.alumni-row strong {
+  font-size: 12px;
+}
+
+.alumni-row span,.alumni-row small {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.alumni-row .outline-button {
+  padding: 8px 10px;
+  font-size: 10px;
+}
+
+.mentor-modal textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 130px;
+  margin-top: 8px;
+  padding: 11px;
+  font: 12px/1.5 "DM Sans",sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid #6b5b95;
+  outline-offset: 2px;
+}
+
+@media(max-width:900px) {
+  .support-overview-grid,.support-lower-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:800px) {
+  .application-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media(max-width:560px) {
+  .application-summary-grid {
+    gap: 7px;
+  }
+
+  .application-stat {
+    padding: 12px 10px;
+  }
+
+  .application-stat strong {
+    font-size: 21px;
+  }
+
+  .application-stat small {
+    font-size: 9px;
+  }
+
+  .application-card {
+    grid-template-columns: 38px minmax(0,1fr);
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .application-card .company-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .application-actions {
+    grid-column: 2;
+  }
+
+  .alumni-row {
+    grid-template-columns: 34px minmax(0,1fr);
+  }
+
+  .alumni-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .alumni-row .outline-button {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .application-modal,.mentor-modal {
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
 }
 
 .nav-item.active, .nav-count, .tag.purple, .lavender, .violet, .mini-action, .rec-icon, .view-toggle .selected, .day-event, .choice.selected {
