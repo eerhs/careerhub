@@ -10,16 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="app-shell">
     <aside class="sidebar">
       <div class="school-chip"><span class="school-seal">I</span><span>ILLINOIS TECH<br><small>STUDENT CAREER HUB</small></span></div>
       <div class="nav-label">WORKSPACE</div>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Main navigation">
         <button class="nav-item active" data-page="overview" aria-label="Overview" title="Overview"><span class="nav-icon">⌂</span> Overview</button>
         <button class="nav-item" data-page="pathway" aria-label="My pathway" title="My pathway"><span class="nav-icon">◎</span> My pathway <span class="nav-count">3</span></button>
         <button class="nav-item" data-page="applications" aria-label="Applications" title="Applications"><span class="nav-icon">▤</span> Applications</button>
         <button class="nav-item" data-page="events" aria-label="Events" title="Events"><span class="nav-icon">▦</span> Events</button>
         <button class="nav-item" data-page="support" aria-label="Career support" title="Career support"><span class="nav-icon">✦</span> Career support</button>
+        <button class="nav-item" data-page="privacy" aria-label="Privacy and sharing" title="Privacy and sharing"><span class="nav-icon">◉</span> Privacy & sharing</button>
         <button class="nav-item" data-page="handshake" aria-label="Handshake opportunities" title="Handshake opportunities"><span class="nav-icon">↗</span> Opportunities <span class="external">↗</span></button>
       </nav>
       <div class="sidebar-bottom">
@@ -28,11 +30,11 @@
       </div>
     </aside>
 
-    <main class="main-area">
+    <main class="main-area" id="main-content" tabindex="-1">
       <header class="topbar">
-        <div class="breadcrumb"><span>Student workspace</span><span class="crumb-slash">/</span><strong id="crumb-current">Overview</strong></div>
+        <div class="breadcrumb"><span>Student workspace</span><span class="crumb-slash" aria-hidden="true">/</span><strong id="crumb-current" aria-live="polite">Overview</strong></div>
         <div class="top-actions">
-          <button class="icon-button" title="Notifications" aria-label="Notifications">🔔<i class="notification-dot"></i></button>
+          <button class="icon-button" type="button" title="Notifications" aria-label="Notifications">🔔<i class="notification-dot" aria-hidden="true"></i></button>
           <button class="top-link" id="edit-profile">Edit personalization</button>
           <button class="login-button" id="login-button"><span class="login-dot"></span> Your account <span class="chevron">↓</span></button>
         </div>
@@ -45,15 +47,15 @@
         </div>
         <div class="overview-grid">
           <div class="profile-card panel">
-            <div class="profile-top"><div class="avatar large">JJ</div><div><div class="profile-name">John John</div><div class="muted">jjohn@hawk.illinoistech.edu</div><div class="tag-row"><span class="tag purple">Computer Science</span><span class="tag">Junior · Class of 2027</span></div></div><button class="more-button" aria-label="More options">···</button></div>
+            <div class="profile-top"><div class="avatar large" aria-hidden="true">JJ</div><div><div class="profile-name">John John</div><div class="muted">jjohn@hawk.illinoistech.edu</div><div class="tag-row"><span class="tag purple">Computer Science</span><span class="tag">Junior · Class of 2027</span></div></div><button class="more-button" type="button" aria-label="More profile options">···</button></div>
             <div class="profile-divider"></div>
             <div class="profile-facts"><div><span class="fact-label">CAREER INTEREST</span><strong>Software & AI Engineering</strong></div><div><span class="fact-label">EXPERIENCE</span><strong>1 internship · 2 projects</strong></div><div><span class="fact-label">GOAL</span><strong>Summer 2027 internship</strong></div></div>
             <button class="outline-button" id="view-profile">View student profile <span>→</span></button>
           </div>
           <div class="setup-card panel">
-            <div class="setup-head"><div><div class="eyebrow">MAKE IT YOURS</div><h3>Complete your setup</h3></div><div class="progress-ring"><span>65<small>%</small></span></div></div>
+            <div class="setup-head"><div><div class="eyebrow">MAKE IT YOURS</div><h3>Complete your setup</h3></div><div class="progress-ring" role="progressbar" aria-label="Profile setup progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65"><span aria-hidden="true">65<small>%</small></span></div></div>
             <p class="muted">A few more details will help us shape a pathway around your goals.</p>
-            <div class="progress-track"><span style="width:65%"></span></div>
+            <div class="progress-track" aria-hidden="true"><span style="width:65%"></span></div>
             <div class="setup-next"><span class="check-circle">✓</span><span>Academic profile</span><span class="done-label">DONE</span></div>
             <div class="setup-next"><span class="check-circle">✓</span><span>Career interests</span><span class="done-label">DONE</span></div>
             <div class="setup-next pending"><span class="empty-circle"></span><span>Skills & preferences survey</span><span class="todo-label">TO DO</span></div>
@@ -71,7 +73,7 @@
         <div class="bottom-grid">
           <div class="panel next-card"><div class="card-heading"><div><div class="eyebrow">UP NEXT</div><h3>Your recommended next steps</h3></div><span class="small-badge">PERSONALIZED</span></div>
             <div class="task-row"><div class="task-symbol violet">▤</div><div class="task-content"><strong>Book a resume review</strong><p>Get feedback before the Fall Career Fair.</p><small>CAREER PREPARATION · 20 MIN</small></div><button class="round-arrow" data-goto="support" aria-label="Book a resume review">→</button></div>
-            <div class="task-row"><div class="task-symbol orange">♧</div><div class="task-content"><strong>Prepare your recruiter introduction</strong><p>Practice a concise 30-second introduction.</p><small>CAREER FAIR READY · 15 MIN</small></div><button class="round-arrow" data-goto="pathway">→</button></div>
+            <div class="task-row"><div class="task-symbol orange" aria-hidden="true">♧</div><div class="task-content"><strong>Prepare your recruiter introduction</strong><p>Practice a concise 30-second introduction.</p><small>CAREER FAIR READY · 15 MIN</small></div><button class="round-arrow" type="button" data-goto="pathway" aria-label="View recruiter introduction practice in your pathway">→</button></div>
           </div>
           <div class="panel event-preview"><div class="card-heading"><div><div class="eyebrow">DON'T MISS</div><h3>Coming up</h3></div><button class="plain-arrow" data-goto="events">All events →</button></div>
             <div class="featured-event-date"><b>NOV</b><strong>05</strong></div><div class="featured-event-info"><span class="event-type">CAREER FAIR</span><strong>Fall 2026 Career Fair</strong><p>MTCC · 11:00 AM – 3:00 PM</p><button class="text-link" id="open-fair">View fair navigation guide →</button></div>
@@ -81,7 +83,7 @@
 
       <section class="page" id="page-pathway">
         <div class="page-intro"><div><div class="eyebrow">YOUR CAREER ROADMAP</div><h1>My pathway</h1><p class="subhead">A flexible plan to help you move from where you are to where you want to be.</p></div><button class="primary-button" id="pathway-personalize">＋ Customize pathway</button></div>
-        <div class="pathway-hero panel"><div><span class="small-badge">YOUR CURRENT GOAL</span><h2>Land a Summer 2027<br>Software Engineering Internship</h2><p>Built around Computer Science · Software & AI Engineering · Junior year</p><div class="hero-meta"><span>◷ Target: May 2027</span><span>◎ 8 of 12 steps complete</span></div></div><div class="hero-progress"><div class="hero-progress-number">67<small>%</small></div><div class="progress-track"><span style="width:67%"></span></div><small>OVERALL READINESS</small></div></div>
+        <div class="pathway-hero panel"><div><span class="small-badge">YOUR CURRENT GOAL</span><h2>Land a Summer 2027<br>Software Engineering Internship</h2><p>Built around Computer Science · Software & AI Engineering · Junior year</p><div class="hero-meta"><span>Target: May 2027</span><span>8 of 12 steps complete</span></div></div><div class="hero-progress"><div class="hero-progress-number" role="progressbar" aria-label="Career readiness" aria-valuemin="0" aria-valuemax="100" aria-valuenow="67">67<small>%</small></div><div class="progress-track" aria-hidden="true"><span style="width:67%"></span></div><small>OVERALL READINESS</small></div></div>
         <div class="pathway-layout"><div class="pathway-main">
           <div class="timeline-group"><div class="timeline-heading"><span class="timeline-dot completed"></span><div><span class="eyebrow">PHASE 01 · COMPLETED</span><h3>Build your foundation</h3></div><span class="phase-count">4 / 4</span></div>
             <div class="timeline-items"><div class="path-step completed"><span class="step-check">✓</span><div><strong>Explore career paths in computer science</strong><p>Compare software, data, and AI engineering roles.</p><small>COMPLETED · SEP 12</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Identify your strongest technical skills</strong><p>Document your experience with Python, Java, and SQL.</p><small>COMPLETED · SEP 18</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Update your resume</strong><p>Highlight projects, impact, and technical skills.</p><small>COMPLETED · OCT 02</small></div><span class="step-status">Done</span></div><div class="path-step completed"><span class="step-check">✓</span><div><strong>Create or refresh your Handshake profile</strong><p>Add your resume, interests, and experience.</p><small>COMPLETED · OCT 08</small></div><span class="step-status">Done</span></div></div>
@@ -98,17 +100,17 @@
 
       <section class="page" id="page-events">
         <div class="page-intro"><div><div class="eyebrow">LEARN · CONNECT · EXPLORE</div><h1>Events & workshops</h1><p class="subhead">One place to discover career events that match your interests and schedule.</p></div><button class="outline-button">＋ Add to calendar</button></div>
-        <div class="filter-bar panel"><div class="search-wrap"><span>⌕</span><input id="event-search" placeholder="Search events, topics, or hosts..." /></div><select id="major-filter"><option value="all">All majors</option><option value="Computer Science">Computer Science</option><option value="Engineering">Engineering</option><option value="All majors">All majors</option><option value="Business">Business</option></select><select id="type-filter"><option value="all">All activity types</option><option value="Career Fair">Career fair</option><option value="Workshop">Workshop</option><option value="Networking">Networking</option><option value="Info Session">Info session</option><option value="Advising">Advising</option></select><button class="filter-reset" id="reset-filters">Reset</button></div>
-        <div class="calendar-toolbar"><div><h2>October – November 2026</h2><span class="muted">Showing events relevant to your profile</span></div><div class="calendar-controls"><button aria-label="Previous month">‹</button><button class="today-button">Today</button><button aria-label="Next month">›</button><div class="view-toggle"><button class="selected">Month</button><button>List</button></div></div></div>
-        <div class="calendar panel"><div class="calendar-grid" id="calendar-grid"><div class="weekday">SUN</div><div class="weekday">MON</div><div class="weekday">TUE</div><div class="weekday">WED</div><div class="weekday">THU</div><div class="weekday">FRI</div><div class="weekday">SAT</div></div></div>
-        <div class="events-list-heading"><h3>Recommended for you</h3><span class="muted" id="event-result-count">6 events</span></div>
+        <div class="filter-bar panel"><div class="search-wrap"><label class="sr-only" for="event-search">Search events, topics, or hosts</label><span aria-hidden="true">⌕</span><input id="event-search" type="search" placeholder="Search events, topics, or hosts..." /></div><label class="sr-only" for="major-filter">Filter events by major</label><select id="major-filter"><option value="all">All majors</option><option value="Computer Science">Computer Science</option><option value="Engineering">Engineering</option><option value="All majors">All majors</option><option value="Business">Business</option></select><label class="sr-only" for="type-filter">Filter events by activity type</label><select id="type-filter"><option value="all">All activity types</option><option value="Career Fair">Career fair</option><option value="Workshop">Workshop</option><option value="Networking">Networking</option><option value="Info Session">Info session</option><option value="Advising">Advising</option></select><button class="filter-reset" id="reset-filters" type="button">Reset filters</button></div>
+        <div class="calendar-toolbar"><div><h2>October – November 2026</h2><span class="muted">Calendar preview. Event details and dates are listed below.</span></div><div class="calendar-controls" role="group" aria-label="Calendar preview controls"><button type="button" aria-label="Previous month" disabled>‹</button><button class="today-button" type="button" disabled>Today</button><button type="button" aria-label="Next month" disabled>›</button><div class="view-toggle" role="group" aria-label="Calendar view"><button class="selected" type="button" aria-pressed="true">Month</button><button type="button" disabled>List</button></div></div></div>
+        <div class="calendar panel" aria-hidden="true"><div class="calendar-grid" id="calendar-grid"><div class="weekday">SUN</div><div class="weekday">MON</div><div class="weekday">TUE</div><div class="weekday">WED</div><div class="weekday">THU</div><div class="weekday">FRI</div><div class="weekday">SAT</div></div></div>
+        <div class="events-list-heading"><h3>Recommended for you</h3><span class="muted" id="event-result-count" role="status" aria-live="polite" aria-atomic="true">6 events</span></div>
         <div class="event-list" id="event-list">
-          <article class="event-card panel" data-date="2026-11-05" data-major="Computer Science" data-type="Career Fair" data-search="fall career fair employers internship software"><div class="event-date"><b>NOV</b><strong>05</strong><small>THU</small></div><div class="event-details"><span class="event-type">CAREER FAIR</span><h3>Fall 2026 Career Fair</h3><p>Meet employers, explore internships, and connect with recruiters across industries.</p><div class="event-meta"><span>◷ 11:00 AM – 3:00 PM</span><span>⌖ MTCC · Hermann Hall</span><span>◎ Computer Science + all majors</span></div></div><div class="event-card-action"><span class="match-label">HIGH MATCH</span><button class="primary-button" id="fair-card-button">Open fair guide →</button></div></article>
-          <article class="event-card panel" data-date="2026-11-03" data-major="All majors" data-type="Workshop" data-search="resume review workshop career services"><div class="event-date"><b>NOV</b><strong>03</strong><small>TUE</small></div><div class="event-details"><span class="event-type">WORKSHOP</span><h3>Resume Lab: Make Your Experience Stand Out</h3><p>Get practical feedback on bullet points, projects, and technical skills.</p><div class="event-meta"><span>◷ 2:00 – 3:00 PM</span><span>⌖ Kaplan Institute · Room 102</span><span>◎ All majors</span></div></div><div class="event-card-action"><span class="match-label">HIGH MATCH</span><button class="outline-button">Save event ☆</button></div></article>
-          <article class="event-card panel" data-date="2026-11-06" data-major="Computer Science" data-type="Info Session" data-search="cloud software engineering company information session"><div class="event-date"><b>NOV</b><strong>06</strong><small>FRI</small></div><div class="event-details"><span class="event-type">INFO SESSION</span><h3>Cloud & Software Engineering: Meet the Team</h3><p>Learn about entry-level roles, internship projects, and the interview process.</p><div class="event-meta"><span>◷ 4:00 – 5:00 PM</span><span>⌖ Online · Virtual session</span><span>◎ Computer Science</span></div></div><div class="event-card-action"><span class="match-label">GOOD MATCH</span><button class="outline-button">Save event ☆</button></div></article>
-          <article class="event-card panel" data-date="2026-11-10" data-major="All majors" data-type="Networking" data-search="alumni networking technology connections"><div class="event-date"><b>NOV</b><strong>10</strong><small>TUE</small></div><div class="event-details"><span class="event-type">NETWORKING</span><h3>Tech Alumni Connections</h3><p>Connect with Illinois Tech alumni working across technology fields.</p><div class="event-meta"><span>◷ 5:30 – 7:00 PM</span><span>⌖ MTCC · Ballroom</span><span>◎ All majors</span></div></div><div class="event-card-action"><span class="match-label">GOOD MATCH</span><button class="outline-button">Save event ☆</button></div></article>
-          <article class="event-card panel" data-date="2026-11-12" data-major="Computer Science" data-type="Workshop" data-search="technical interview coding practice workshop"><div class="event-date"><b>NOV</b><strong>12</strong><small>THU</small></div><div class="event-details"><span class="event-type">WORKSHOP</span><h3>Technical Interview Practice</h3><p>Work through common coding interview patterns with peers.</p><div class="event-meta"><span>◷ 3:00 – 4:30 PM</span><span>⌖ Siegel Hall · 118</span><span>◎ Computer Science</span></div></div><div class="event-card-action"><span class="match-label">HIGH MATCH</span><button class="outline-button">Save event ☆</button></div></article>
-          <article class="event-card panel" data-date="2026-11-17" data-major="All majors" data-type="Advising" data-search="career advising appointment career goals"><div class="event-date"><b>NOV</b><strong>17</strong><small>TUE</small></div><div class="event-details"><span class="event-type">ADVISING</span><h3>Career Planning Drop-in Hours</h3><p>Talk through career goals, job search strategy, or next steps.</p><div class="event-meta"><span>◷ 1:00 – 3:00 PM</span><span>⌖ Career Services · MTCC</span><span>◎ All majors</span></div></div><div class="event-card-action"><span class="match-label">GOOD MATCH</span><button class="outline-button">Save event ☆</button></div></article>
+          <article class="event-card panel" data-date="2026-11-05" data-major="Computer Science" data-type="Career Fair" data-search="fall career fair employers internship software"><div class="event-date"><b>NOV</b><strong>05</strong><small>THU</small></div><div class="event-details"><span class="event-type">CAREER FAIR</span><h3>Fall 2026 Career Fair</h3><p>Meet employers, explore internships, and connect with recruiters across industries.</p><div class="event-meta"><span>11:00 AM – 3:00 PM</span><span>MTCC · Hermann Hall</span><span>Computer Science + all majors</span></div></div><div class="event-card-action"><span class="match-label">HIGH MATCH</span><button class="primary-button" id="fair-card-button" type="button">Open fair guide →</button></div></article>
+          <article class="event-card panel" data-date="2026-11-03" data-major="All majors" data-type="Workshop" data-search="resume review workshop career services"><div class="event-date"><b>NOV</b><strong>03</strong><small>TUE</small></div><div class="event-details"><span class="event-type">WORKSHOP</span><h3>Resume Lab: Make Your Experience Stand Out</h3><p>Get practical feedback on bullet points, projects, and technical skills.</p><div class="event-meta"><span>2:00 – 3:00 PM</span><span>Kaplan Institute · Room 102</span><span>All majors</span></div></div><div class="event-card-action"><span class="match-label">HIGH MATCH</span><button class="outline-button" type="button" aria-pressed="false">Save event ☆</button></div></article>
+          <article class="event-card panel" data-date="2026-11-06" data-major="Computer Science" data-type="Info Session" data-search="cloud software engineering company information session"><div class="event-date"><b>NOV</b><strong>06</strong><small>FRI</small></div><div class="event-details"><span class="event-type">INFO SESSION</span><h3>Cloud & Software Engineering: Meet the Team</h3><p>Learn about entry-level roles, internship projects, and the interview process.</p><div class="event-meta"><span>4:00 – 5:00 PM</span><span>Online · Virtual session</span><span>Computer Science</span></div></div><div class="event-card-action"><span class="match-label">GOOD MATCH</span><button class="outline-button" type="button" aria-pressed="false">Save event ☆</button></div></article>
+          <article class="event-card panel" data-date="2026-11-10" data-major="All majors" data-type="Networking" data-search="alumni networking technology connections"><div class="event-date"><b>NOV</b><strong>10</strong><small>TUE</small></div><div class="event-details"><span class="event-type">NETWORKING</span><h3>Tech Alumni Connections</h3><p>Connect with Illinois Tech alumni working across technology fields.</p><div class="event-meta"><span>5:30 – 7:00 PM</span><span>MTCC · Ballroom</span><span>All majors</span></div></div><div class="event-card-action"><span class="match-label">GOOD MATCH</span><button class="outline-button" type="button" aria-pressed="false">Save event ☆</button></div></article>
+          <article class="event-card panel" data-date="2026-11-12" data-major="Computer Science" data-type="Workshop" data-search="technical interview coding practice workshop"><div class="event-date"><b>NOV</b><strong>12</strong><small>THU</small></div><div class="event-details"><span class="event-type">WORKSHOP</span><h3>Technical Interview Practice</h3><p>Work through common coding interview patterns with peers.</p><div class="event-meta"><span>3:00 – 4:30 PM</span><span>Siegel Hall · 118</span><span>Computer Science</span></div></div><div class="event-card-action"><span class="match-label">HIGH MATCH</span><button class="outline-button" type="button" aria-pressed="false">Save event ☆</button></div></article>
+          <article class="event-card panel" data-date="2026-11-17" data-major="All majors" data-type="Advising" data-search="career advising appointment career goals"><div class="event-date"><b>NOV</b><strong>17</strong><small>TUE</small></div><div class="event-details"><span class="event-type">ADVISING</span><h3>Career Planning Drop-in Hours</h3><p>Talk through career goals, job search strategy, or next steps.</p><div class="event-meta"><span>1:00 – 3:00 PM</span><span>Career Services · MTCC</span><span>All majors</span></div></div><div class="event-card-action"><span class="match-label">GOOD MATCH</span><button class="outline-button" type="button" aria-pressed="false">Save event ☆</button></div></article>
         </div>
       </section>
 
@@ -118,11 +120,11 @@
         <div class="fair-content-grid"><div>
           <div class="section-heading compact"><div><div class="eyebrow">YOUR SHORTLIST</div><h2>Employers to prioritize</h2><p class="muted">Illustrative employers and roles for this prototype.</p></div><span class="small-badge">5 SUGGESTED</span></div>
           <div class="employer-list">
-            <div class="employer-row panel"><div class="company-logo blue-logo">N</div><div class="employer-info"><strong>Northstar Technologies</strong><span>Software Engineering Intern</span><small>Python · Java · Distributed Systems</small></div><span class="fit-score">96% fit</span><button class="round-arrow">→</button></div>
-            <div class="employer-row panel"><div class="company-logo coral-logo">V</div><div class="employer-info"><strong>Vertex AI Labs</strong><span>Machine Learning Intern</span><small>Python · ML · Data Processing</small></div><span class="fit-score">93% fit</span><button class="round-arrow">→</button></div>
-            <div class="employer-row panel"><div class="company-logo green-logo">G</div><div class="employer-info"><strong>Gridline Systems</strong><span>Backend Engineering Intern</span><small>Java · SQL · APIs</small></div><span class="fit-score">89% fit</span><button class="round-arrow">→</button></div>
-            <div class="employer-row panel"><div class="company-logo gold-logo">A</div><div class="employer-info"><strong>Arcwell Analytics</strong><span>Data Engineering Intern</span><small>Python · SQL · Cloud</small></div><span class="fit-score">86% fit</span><button class="round-arrow">→</button></div>
-            <div class="employer-row panel"><div class="company-logo purple-logo">C</div><div class="employer-info"><strong>Cedar Robotics</strong><span>Software & Robotics Intern</span><small>C++ · Python · Algorithms</small></div><span class="fit-score">82% fit</span><button class="round-arrow">→</button></div>
+            <div class="employer-row panel"><div class="company-logo blue-logo" aria-hidden="true">N</div><div class="employer-info"><strong>Northstar Technologies</strong><span>Software Engineering Intern</span><small>Python · Java · Distributed Systems</small></div><span class="fit-score">96% fit</span><button class="round-arrow employer-details" type="button" aria-label="View Northstar Technologies employer details">→</button></div>
+            <div class="employer-row panel"><div class="company-logo coral-logo" aria-hidden="true">V</div><div class="employer-info"><strong>Vertex AI Labs</strong><span>Machine Learning Intern</span><small>Python · ML · Data Processing</small></div><span class="fit-score">93% fit</span><button class="round-arrow employer-details" type="button" aria-label="View Vertex AI Labs employer details">→</button></div>
+            <div class="employer-row panel"><div class="company-logo green-logo" aria-hidden="true">G</div><div class="employer-info"><strong>Gridline Systems</strong><span>Backend Engineering Intern</span><small>Java · SQL · APIs</small></div><span class="fit-score">89% fit</span><button class="round-arrow employer-details" type="button" aria-label="View Gridline Systems employer details">→</button></div>
+            <div class="employer-row panel"><div class="company-logo gold-logo" aria-hidden="true">A</div><div class="employer-info"><strong>Arcwell Analytics</strong><span>Data Engineering Intern</span><small>Python · SQL · Cloud</small></div><span class="fit-score">86% fit</span><button class="round-arrow employer-details" type="button" aria-label="View Arcwell Analytics employer details">→</button></div>
+            <div class="employer-row panel"><div class="company-logo purple-logo" aria-hidden="true">C</div><div class="employer-info"><strong>Cedar Robotics</strong><span>Software & Robotics Intern</span><small>C++ · Python · Algorithms</small></div><span class="fit-score">82% fit</span><button class="round-arrow employer-details" type="button" aria-label="View Cedar Robotics employer details">→</button></div>
           </div>
         </div><aside class="fair-side"><div class="panel checklist-card"><div class="eyebrow">BEFORE YOU GO</div><h3>Fair day checklist</h3><p class="muted">Check off each item as you prepare.</p><label class="check-item"><input type="checkbox" checked> <span>Review my resume</span></label><label class="check-item"><input type="checkbox" checked> <span>Research target employers</span></label><label class="check-item"><input type="checkbox"> <span>Prepare my 30-second intro</span></label><label class="check-item"><input type="checkbox"> <span>Choose 3 questions to ask</span></label><label class="check-item"><input type="checkbox"> <span>Bring 5–8 resume copies</span></label><label class="check-item"><input type="checkbox"> <span>Plan my route</span></label></div>
           <div class="panel tips-card"><div class="eyebrow">QUICK TIP</div><h3>Ask better questions</h3><p>“What does success look like for an intern on your engineering team?”</p><button class="text-link" id="more-questions">See more recruiter questions →</button></div></aside></div>
@@ -131,7 +133,7 @@
 
       <section class="page" id="page-applications">
         <div class="page-intro"><div><div class="eyebrow">KEEP YOUR SEARCH ON TRACK</div><h1>Application tracker</h1><p class="subhead">Organize opportunities and keep your next follow-up in view.</p></div><button class="primary-button" id="open-application-modal">＋ Add application</button></div>
-        <div class="application-summary-grid">
+        <div class="application-summary-grid" role="group" aria-label="Application summary" aria-live="polite" aria-atomic="true">
           <div class="panel application-stat"><span>In progress</span><strong id="application-active-count">0</strong><small>Saved, applied, or interviewing</small></div>
           <div class="panel application-stat"><span>Interviews</span><strong id="application-interview-count">0</strong><small>Keep preparing and following up</small></div>
           <div class="panel application-stat"><span>Offers</span><strong id="application-offer-count">0</strong><small>Celebrate your progress</small></div>
@@ -176,7 +178,7 @@
         </div>
         <div class="support-lower-grid">
           <div class="panel support-card appointment-card">
-            <div class="eyebrow">MEET WITH CAREER SERVICES</div><h2>Request an appointment</h2><p class="muted">Choose a topic and a time that works. This prototype saves a request locally; it does not reserve a real appointment.</p>
+            <div class="eyebrow">MEET WITH CAREER SERVICES</div><h2>Request an appointment</h2><p class="muted">Choose a topic and a time that works for you.</p>
             <form id="appointment-form" class="support-form">
               <label for="appointment-topic">What would you like help with?</label>
               <select id="appointment-topic" name="topic" required><option value="Resume review">Resume review</option><option value="Interview practice">Interview practice</option><option value="Career planning">Career planning</option><option value="Internship search">Internship search</option></select>
@@ -186,7 +188,7 @@
             <div class="appointment-confirmation" id="appointment-confirmation" aria-live="polite"></div>
           </div>
           <div class="panel support-card alumni-card">
-            <div class="eyebrow">LEARN FROM ALUMNI</div><h2>People who can help you explore</h2><p class="muted">Illustrative alumni profiles. Draft a note to start a conversation—no message is sent from this prototype.</p>
+            <div class="eyebrow">LEARN FROM ALUMNI</div><h2>People who can help you explore</h2><p class="muted">Draft a note to start a conversation.</p>
             <div class="alumni-list">
               <article class="alumni-row"><div class="alumni-avatar">MP</div><div><strong>Maya Patel</strong><span>Software Engineer · Class of 2021</span><small>Backend systems · Interview prep</small></div><button class="outline-button mentor-draft" type="button" data-mentor-name="Maya Patel" data-mentor-focus="backend engineering">Draft intro</button></article>
               <article class="alumni-row"><div class="alumni-avatar">JR</div><div><strong>Jordan Rivera</strong><span>ML Engineer · Class of 2019</span><small>Machine learning · Early-career advice</small></div><button class="outline-button mentor-draft" type="button" data-mentor-name="Jordan Rivera" data-mentor-focus="machine learning">Draft intro</button></article>
@@ -194,6 +196,40 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="page" id="page-privacy">
+        <div class="page-intro"><div><div class="eyebrow">YOUR DATA · YOUR CHOICE</div><h1>Privacy & sharing</h1><p class="subhead">Choose who can see selected parts of your career profile. Sharing is off until you turn it on.</p></div></div>
+        <div class="privacy-summary panel"><div><div class="eyebrow">YOUR SHARING SETTINGS</div><strong id="privacy-summary-status" aria-live="polite" aria-atomic="true">Nothing is being shared</strong><p id="privacy-summary-detail">You have not enabled sharing with any audience.</p></div><button class="outline-button" type="button" id="revoke-all-sharing">Turn off all sharing</button></div>
+        <div class="sharing-grid">
+          <article class="sharing-card panel" data-sharing-card="advisors">
+            <div class="sharing-card-heading"><div class="sharing-audience-icon" aria-hidden="true">✦</div><div><h2>Career Services advisors</h2><p>Share selected details to get more relevant guidance in an advising conversation.</p></div><span class="sharing-status" data-share-status="advisors" aria-live="polite">Off</span></div>
+            <fieldset class="sharing-fields"><legend>Choose what an advisor can see</legend>
+              <label><input type="checkbox" data-share-field="advisors" value="profile"><span><strong>Academic profile</strong><small>Major, class year, and career interests</small></span></label>
+              <label><input type="checkbox" data-share-field="advisors" value="skills"><span><strong>Skills and portfolio</strong><small>Skills and links you added to your career profile</small></span></label>
+              <label><input type="checkbox" data-share-field="advisors" value="applications"><span><strong>Application progress</strong><small>Companies, roles, and statuses in your application tracker</small></span></label>
+            </fieldset>
+            <div class="sharing-card-footer"><label class="sharing-toggle"><input type="checkbox" data-share-toggle="advisors" aria-label="Allow Career Services advisors to see selected information"><span class="sharing-switch" aria-hidden="true"></span><span class="sharing-toggle-label">Allow selected sharing</span></label><small data-share-updated="advisors">No sharing consent recorded</small></div>
+          </article>
+          <article class="sharing-card panel" data-sharing-card="employers">
+            <div class="sharing-card-heading"><div class="sharing-audience-icon" aria-hidden="true">↗</div><div><h2>Employers</h2><p>Share a limited career profile to support introductions and opportunity matching.</p></div><span class="sharing-status" data-share-status="employers" aria-live="polite">Off</span></div>
+            <fieldset class="sharing-fields"><legend>Choose what an employer can see</legend>
+              <label><input type="checkbox" data-share-field="employers" value="profile"><span><strong>Academic profile</strong><small>Major, class year, and career interests</small></span></label>
+              <label><input type="checkbox" data-share-field="employers" value="skills"><span><strong>Skills and portfolio</strong><small>Skills and portfolio links you chose to include</small></span></label>
+              <label><input type="checkbox" data-share-field="employers" value="contact"><span><strong>Contact details</strong><small>Your profile email address for follow-up</small></span></label>
+            </fieldset>
+            <div class="sharing-card-footer"><label class="sharing-toggle"><input type="checkbox" data-share-toggle="employers" aria-label="Allow employers to see selected information"><span class="sharing-switch" aria-hidden="true"></span><span class="sharing-toggle-label">Allow selected sharing</span></label><small data-share-updated="employers">No sharing consent recorded</small></div>
+          </article>
+          <article class="sharing-card panel" data-sharing-card="alumni">
+            <div class="sharing-card-heading"><div class="sharing-audience-icon" aria-hidden="true">◎</div><div><h2>Alumni and mentors</h2><p>Share a brief career profile to help alumni tailor their advice when you connect.</p></div><span class="sharing-status" data-share-status="alumni" aria-live="polite">Off</span></div>
+            <fieldset class="sharing-fields"><legend>Choose what an alum or mentor can see</legend>
+              <label><input type="checkbox" data-share-field="alumni" value="profile"><span><strong>Academic profile</strong><small>Major, class year, and career interests</small></span></label>
+              <label><input type="checkbox" data-share-field="alumni" value="skills"><span><strong>Skills and portfolio</strong><small>Skills and portfolio links you chose to include</small></span></label>
+            </fieldset>
+            <div class="sharing-card-footer"><label class="sharing-toggle"><input type="checkbox" data-share-toggle="alumni" aria-label="Allow alumni and mentors to see selected information"><span class="sharing-switch" aria-hidden="true"></span><span class="sharing-toggle-label">Allow selected sharing</span></label><small data-share-updated="alumni">No sharing consent recorded</small></div>
+          </article>
+        </div>
+        <div class="privacy-boundaries panel"><div class="privacy-lock-icon">▣</div><div><strong>Some information stays private</strong><p>Private notes, advising session details, and stored resume files are not included in these sharing choices. Only profile links you select are in scope. Submitting an application or sending a message is always a separate action.</p></div></div>
       </section>
 
       <section class="page" id="page-handshake">
@@ -207,10 +243,9 @@
           <article class="job-card panel"><div class="company-logo gold-logo">A</div><div class="job-main"><div class="job-topline"><span class="job-type">INTERNSHIP</span><span class="fit-score">86% match</span></div><h3>Data Engineering Intern</h3><p>Arcwell Analytics <span>·</span> Oak Brook, IL / Hybrid</p><div class="skill-tags"><span>Python</span><span>SQL</span><span>AWS</span><span>+1</span></div></div><div class="job-side"><strong>$28–36/hr</strong><small>Posted 1 week ago</small><button class="outline-button apply-button">Quick view ↗</button></div></article>
           <article class="job-card panel"><div class="company-logo purple-logo">C</div><div class="job-main"><div class="job-topline"><span class="job-type">INTERNSHIP</span><span class="fit-score">82% match</span></div><h3>Robotics Software Intern</h3><p>Cedar Robotics <span>·</span> Evanston, IL</p><div class="skill-tags"><span>C++</span><span>Python</span><span>Algorithms</span></div></div><div class="job-side"><strong>$29–37/hr</strong><small>Posted 1 week ago</small><button class="outline-button apply-button">Quick view ↗</button></div></article>
         </div>
-        <p class="disclaimer">Prototype content for demonstration only. Job listings, notifications, match scores, and employer details are illustrative—not live Handshake data.</p>
       </section>
 
-      <footer class="footer"><small>Student Career Hub</small></span><span>Designed to make every next step clearer.</span><a href="#">Career Services ↗</a></footer>
+      <footer class="footer"><small>Student Career Hub</small><span>Designed to make every next step clearer.</span><button class="text-link" type="button" data-goto="support">Career Services →</button></footer>
     </main>
   </div>
 
@@ -239,9 +274,16 @@
     </div>
   </div>
   <div class="modal-backdrop" id="survey-modal">
-    <div class="modal panel"><button class="modal-close" data-close>×</button><div class="eyebrow">PERSONALIZE YOUR PATHWAY · 2 MIN</div><h2>Let's make this yours.</h2><p class="muted">A few quick details help us recommend relevant events, resources, and opportunities.</p><div class="form-group"><label>What are you most interested in?</label><div class="choice-grid"><button class="choice selected">Software engineering</button><button class="choice">AI / Machine learning</button><button class="choice">Data engineering</button><button class="choice">Cybersecurity</button></div></div><div class="form-group"><label>What would you like help with next?</label><select><option>Finding an internship</option><option>Building technical skills</option><option>Resume and interview preparation</option><option>Exploring career options</option></select></div><div class="form-group"><label>What skills do you want to highlight?</label><input value="Python, Java, SQL, Machine Learning" /></div><div class="modal-actions"><button class="outline-button" data-close>Maybe later</button><button class="primary-button" id="save-survey">Save my preferences →</button></div></div>
+    <div class="modal panel" role="dialog" aria-modal="true" aria-labelledby="survey-title" aria-describedby="survey-description">
+      <button class="modal-close" type="button" data-close aria-label="Close personalization dialog">×</button>
+      <div class="eyebrow">PERSONALIZE YOUR PATHWAY · 2 MIN</div><h2 id="survey-title">Let's make this yours.</h2><p class="muted" id="survey-description">A few quick details help us recommend relevant events, resources, and opportunities.</p>
+      <div class="form-group"><fieldset class="choice-fieldset"><legend>What are you most interested in?</legend><div class="choice-grid"><button type="button" class="choice selected" aria-pressed="true">Software engineering</button><button type="button" class="choice" aria-pressed="false">AI / Machine learning</button><button type="button" class="choice" aria-pressed="false">Data engineering</button><button type="button" class="choice" aria-pressed="false">Cybersecurity</button></div></fieldset></div>
+      <div class="form-group"><label for="survey-help">What would you like help with next?</label><select id="survey-help"><option>Finding an internship</option><option>Building technical skills</option><option>Resume and interview preparation</option><option>Exploring career options</option></select></div>
+      <div class="form-group"><label for="survey-skills">What skills do you want to highlight?</label><input id="survey-skills" value="Python, Java, SQL, Machine Learning" /></div>
+      <div class="modal-actions"><button class="outline-button" type="button" data-close>Maybe later</button><button class="primary-button" type="button" id="save-survey">Save my preferences →</button></div>
+    </div>
   </div>
-  <div class="toast" id="toast">Saved — your prototype preferences have been updated.</div>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">Saved — your preferences have been updated.</div>
   <script src="script.js"></script>
 </body>
 </html>

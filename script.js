@@ -1,27 +1,81 @@
 const pages = [...document.querySelectorAll('.page')];
 const navItems = [...document.querySelectorAll('.nav-item')];
-const titles = {overview:'Overview', pathway:'My pathway', applications:'Applications', events:'Events', support:'Career support', fair:'Career fair guide', handshake:'Opportunities'};
+const titles = {overview:'Overview', pathway:'My pathway', applications:'Applications', events:'Events', support:'Career support', privacy:'Privacy & sharing', fair:'Career fair guide', handshake:'Opportunities'};
+document.querySelectorAll('.school-seal, .nav-icon, .external, .help-icon, .notification-dot, .pulse, .check-circle, .empty-circle, .stat-icon, .task-symbol, .rec-icon, .step-check, .company-logo, .alumni-avatar, .sharing-audience-icon, .privacy-lock-icon, .notif-icon, .unread-dot, .login-dot, .chevron')
+  .forEach(icon=>icon.setAttribute('aria-hidden','true'));
 function showPage(name){
   pages.forEach(p=>p.classList.toggle('active-page',p.id===`page-${name}`));
-  navItems.forEach(n=>n.classList.toggle('active',n.dataset.page===name));
-  document.getElementById('crumb-current').textContent=titles[name]||'Overview';
-  window.scrollTo({top:0,behavior:'smooth'});
+  navItems.forEach(n=>{
+    const active=n.dataset.page===name;
+    n.classList.toggle('active',active);
+    if(active)n.setAttribute('aria-current','page');
+    else n.removeAttribute('aria-current');
+  });
+  const title=titles[name]||'Overview';
+  document.getElementById('crumb-current').textContent=title;
+  document.title=`${title} | Illinois Tech Career Hub`;
+  window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
 }
+navItems.forEach(n=>{if(n.classList.contains('active'))n.setAttribute('aria-current','page')});
 navItems.forEach(n=>n.addEventListener('click',()=>showPage(n.dataset.page)));
 document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.goto)));
 document.getElementById('open-fair').addEventListener('click',()=>showPage('fair'));
 document.getElementById('fair-card-button').addEventListener('click',()=>showPage('fair'));
 const modal=document.getElementById('survey-modal');
-function openModal(){modal.classList.add('open')}
-function closeModal(){modal.classList.remove('open')}
+let dialogOpener=null;
+function openDialog(backdrop,initialFocus){
+  dialogOpener=document.activeElement;
+  backdrop.classList.add('open');
+  const target=initialFocus||backdrop.querySelector('.modal-close');
+  if(target)target.focus();
+}
+function closeDialog(backdrop){
+  backdrop.classList.remove('open');
+  if(dialogOpener&&dialogOpener.isConnected)dialogOpener.focus();
+  dialogOpener=null;
+}
+function handleDialogKeydown(event,backdrop){
+  if(!backdrop.classList.contains('open'))return;
+  if(event.key==='Escape'){
+    event.preventDefault();
+    closeDialog(backdrop);
+    return;
+  }
+  if(event.key!=='Tab')return;
+  const focusable=[...backdrop.querySelectorAll('a[href],button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled),[tabindex]:not([tabindex="-1"])')]
+    .filter(element=>element.getClientRects().length>0);
+  if(!focusable.length){
+    event.preventDefault();
+    return;
+  }
+  const first=focusable[0],last=focusable[focusable.length-1];
+  if(event.shiftKey&&document.activeElement===first){
+    event.preventDefault();
+    last.focus();
+  }else if(!event.shiftKey&&document.activeElement===last){
+    event.preventDefault();
+    first.focus();
+  }
+}
+document.querySelectorAll('.modal-backdrop').forEach(backdrop=>{
+  backdrop.addEventListener('keydown',event=>handleDialogKeydown(event,backdrop));
+  backdrop.addEventListener('click',event=>{if(event.target===backdrop)closeDialog(backdrop)});
+});
+function openModal(){openDialog(modal,modal.querySelector('.choice'))}
+function closeModal(){closeDialog(modal)}
 document.getElementById('start-survey').addEventListener('click',openModal);
 document.getElementById('edit-profile').addEventListener('click',openModal);
 document.getElementById('pathway-personalize').addEventListener('click',openModal);
 document.getElementById('edit-goals').addEventListener('click',openModal);
 document.getElementById('view-profile').addEventListener('click',openModal);
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeModal));
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-document.querySelectorAll('.choice').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));c.classList.add('selected')}));
+document.querySelectorAll('.choice').forEach(c=>c.addEventListener('click',()=>{
+  document.querySelectorAll('.choice').forEach(x=>{
+    const selected=x===c;
+    x.classList.toggle('selected',selected);
+    x.setAttribute('aria-pressed',String(selected));
+  });
+}));
 const toast=document.getElementById('toast');
 function showToast(message='Saved — your prototype preferences have been updated.'){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600)}
 document.getElementById('save-survey').addEventListener('click',()=>{closeModal();showToast();});
@@ -31,7 +85,16 @@ document.getElementById('hs-open-2').addEventListener('click',()=>showToast('Ext
 document.getElementById('all-notifications').addEventListener('click',()=>showToast('Showing the latest sample notifications.'));
 document.getElementById('more-questions').addEventListener('click',()=>showToast('Try asking about intern projects, mentorship, and team technologies.'));
 document.querySelectorAll('.apply-button').forEach(b=>b.addEventListener('click',()=>showToast('Sample job details would open here.')));
-document.querySelectorAll('.event-card-action .outline-button').forEach(b=>b.addEventListener('click',()=>{b.textContent=b.textContent.includes('Saved')?'Save event ☆':'Saved ✓';showToast('Event saved to your calendar.')}));
+document.querySelectorAll('.event-card-action button[aria-pressed]').forEach(button=>button.addEventListener('click',()=>{
+  const saved=button.getAttribute('aria-pressed')!=='true';
+  button.setAttribute('aria-pressed',String(saved));
+  button.textContent=saved?'Saved ✓':'Save event ☆';
+  showToast(saved?'Event saved in this prototype.':'Event removed from your saved list.');
+}));
+document.querySelectorAll('.employer-details').forEach(button=>button.addEventListener('click',()=>{
+  const company=button.closest('.employer-row').querySelector('.employer-info strong').textContent;
+  showToast(`${company} employer details would open here.`);
+}));
 
 const eventCards=[...document.querySelectorAll('.event-card')];
 const search=document.getElementById('event-search'), major=document.getElementById('major-filter'), type=document.getElementById('type-filter');
@@ -58,19 +121,18 @@ for(let i=0;i<35;i++){
   if(day<1||day>31){cell.classList.add('muted-day');cell.innerHTML=`<span class="day-number">${day<1?30+day:day-31}</span>`;}
   else{cell.innerHTML=`<span class="day-number">${day}</span>`;}
   if(day===31)cell.classList.add('today');
-  if(day===27){cell.insertAdjacentHTML('beforeend','<span class="day-event green-event">Career coaching</span>');}
-  if(day===29){cell.insertAdjacentHTML('beforeend','<span class="day-event">Resume workshop</span>');}
-  if(day===31){cell.insertAdjacentHTML('beforeend','<span class="day-event orange-event">Portfolio check-in</span>');}
-  if(day===3){cell.insertAdjacentHTML('beforeend','<span class="day-event">Resume Lab</span>');}
-  if(day===5){cell.insertAdjacentHTML('beforeend','<span class="day-event orange-event" data-fair-event>Fall Career Fair</span>');}
-  if(day===6){cell.insertAdjacentHTML('beforeend','<span class="day-event green-event">Cloud & Software</span>');}
-  if(day===10){cell.insertAdjacentHTML('beforeend','<span class="day-event">Alumni Connections</span>');}
-  if(day===12){cell.insertAdjacentHTML('beforeend','<span class="day-event">Interview Practice</span>');}
-  if(day===17){cell.insertAdjacentHTML('beforeend','<span class="day-event green-event">Career Drop-in</span>');}
+  if(day===27){cell.insertAdjacentHTML('beforeend','<span class="day-event green-event">Advising: Career coaching</span>');}
+  if(day===29){cell.insertAdjacentHTML('beforeend','<span class="day-event">Workshop: Resume review</span>');}
+  if(day===31){cell.insertAdjacentHTML('beforeend','<span class="day-event orange-event">Portfolio: Portfolio check-in</span>');}
+  if(day===3){cell.insertAdjacentHTML('beforeend','<span class="day-event">Workshop: Resume Lab</span>');}
+  if(day===5){cell.insertAdjacentHTML('beforeend','<span class="day-event orange-event">Career fair: Fall Career Fair</span>');}
+  if(day===6){cell.insertAdjacentHTML('beforeend','<span class="day-event green-event">Info session: Cloud & Software</span>');}
+  if(day===10){cell.insertAdjacentHTML('beforeend','<span class="day-event">Networking: Alumni Connections</span>');}
+  if(day===12){cell.insertAdjacentHTML('beforeend','<span class="day-event">Workshop: Interview Practice</span>');}
+  if(day===17){cell.insertAdjacentHTML('beforeend','<span class="day-event green-event">Advising: Career drop-in</span>');}
   days.push(cell);
 }
 days.forEach(d=>calendar.appendChild(d));
-calendar.addEventListener('click',e=>{if(e.target.closest('[data-fair-event]'))showPage('fair')});
 document.querySelectorAll('.check-item input').forEach(c=>c.addEventListener('change',()=>showToast('Checklist updated.')));
 
 function readPrototypeData(key, fallback, isValid) {
@@ -95,6 +157,195 @@ function writePrototypeData(key, value) {
     return false;
   }
 }
+
+const privacyAudienceFields = {
+  advisors:['profile','skills','applications'],
+  employers:['profile','skills','contact'],
+  alumni:['profile','skills']
+};
+const privacyAudienceNames = {
+  advisors:'Career Services advisors',
+  employers:'employers',
+  alumni:'alumni and mentors'
+};
+const privacySettingKey = 'careerhub-privacy-settings';
+
+function createDefaultPrivacySettings() {
+  return Object.fromEntries(Object.keys(privacyAudienceFields).map(audience => [
+    audience,
+    {enabled:false, fields:[], grantedAt:null, revokedAt:null, updatedAt:null}
+  ]));
+}
+
+function isValidPrivacySettings(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value) &&
+    Object.keys(value).length === Object.keys(privacyAudienceFields).length &&
+    Object.keys(privacyAudienceFields).every(audience => {
+      const setting = value[audience];
+      return setting && typeof setting.enabled === 'boolean' &&
+        Array.isArray(setting.fields) &&
+        setting.fields.every(field => privacyAudienceFields[audience].includes(field)) &&
+        new Set(setting.fields).size === setting.fields.length &&
+        ['grantedAt','revokedAt','updatedAt'].every(key =>
+          setting[key] === null ||
+          (typeof setting[key] === 'string' && Number.isFinite(Date.parse(setting[key])))
+        );
+    });
+}
+
+let privacySettings = readPrototypeData(
+  privacySettingKey,
+  createDefaultPrivacySettings(),
+  isValidPrivacySettings
+);
+
+function formatPrivacyDate(dateValue) {
+  return new Date(dateValue).toLocaleString(undefined, {
+    month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit'
+  });
+}
+
+function renderPrivacySettings() {
+  const enabledAudiences = Object.keys(privacyAudienceFields)
+    .filter(audience => privacySettings[audience].enabled);
+
+  document.querySelectorAll('[data-share-toggle]').forEach(toggle => {
+    const audience = toggle.dataset.shareToggle;
+    const setting = privacySettings[audience];
+    toggle.checked = setting.enabled;
+    toggle.disabled = setting.fields.length === 0;
+  });
+  document.querySelectorAll('[data-share-field]').forEach(fieldInput => {
+    const {shareField:audience} = fieldInput.dataset;
+    fieldInput.checked = privacySettings[audience].fields.includes(fieldInput.value);
+  });
+  Object.keys(privacyAudienceFields).forEach(audience => {
+    const setting = privacySettings[audience];
+    const card = document.querySelector(`[data-sharing-card="${audience}"]`);
+    const status = card.querySelector('[data-share-status]');
+    status.textContent = setting.enabled
+      ? `On · ${setting.fields.length} ${setting.fields.length === 1 ? 'field' : 'fields'}`
+      : setting.fields.length
+        ? `Off · ${setting.fields.length} selected`
+        : 'Off';
+    status.classList.toggle('is-enabled', setting.enabled);
+    card.classList.toggle('is-sharing', setting.enabled);
+
+    const updated = card.querySelector('[data-share-updated]');
+    if (setting.enabled && setting.grantedAt) {
+      updated.textContent = `Consent granted ${formatPrivacyDate(setting.grantedAt)}`;
+      if (setting.updatedAt && setting.updatedAt !== setting.grantedAt) {
+        updated.textContent += ` · Scope updated ${formatPrivacyDate(setting.updatedAt)}`;
+      }
+    } else if (setting.revokedAt) {
+      updated.textContent = `Sharing turned off ${formatPrivacyDate(setting.revokedAt)}`;
+    } else if (setting.fields.length && setting.updatedAt) {
+      updated.textContent = `Scope selected ${formatPrivacyDate(setting.updatedAt)} · sharing is off`;
+    } else {
+      updated.textContent = 'No sharing consent recorded';
+    }
+  });
+
+  const summaryStatus = document.getElementById('privacy-summary-status');
+  const summaryDetail = document.getElementById('privacy-summary-detail');
+  if (enabledAudiences.length) {
+    summaryStatus.textContent = `Sharing is on with ${enabledAudiences.length} ${enabledAudiences.length === 1 ? 'audience' : 'audiences'}`;
+    summaryDetail.textContent = enabledAudiences.map(audience => {
+      const setting = privacySettings[audience];
+      return `${privacyAudienceNames[audience]} (${setting.fields.length} selected ${setting.fields.length === 1 ? 'field' : 'fields'})`;
+    }).join(' · ');
+  } else {
+    summaryStatus.textContent = 'Nothing is being shared';
+    summaryDetail.textContent = 'You have not enabled sharing with any audience.';
+  }
+}
+
+function savePrivacySettings(nextSettings, message) {
+  if (!writePrototypeData(privacySettingKey, nextSettings)) {
+    renderPrivacySettings();
+    return false;
+  }
+  privacySettings = nextSettings;
+  renderPrivacySettings();
+  showToast(message);
+  return true;
+}
+
+document.querySelectorAll('[data-share-field]').forEach(fieldInput => {
+  fieldInput.addEventListener('change', () => {
+    const audience = fieldInput.dataset.shareField;
+    const current = privacySettings[audience];
+    const fields = fieldInput.checked
+      ? [...current.fields, fieldInput.value]
+      : current.fields.filter(field => field !== fieldInput.value);
+    const now = new Date().toISOString();
+    const enabled = current.enabled && fields.length > 0;
+    const nextSettings = {
+      ...privacySettings,
+      [audience]:{
+        ...current,
+        fields,
+        enabled,
+        updatedAt:now,
+        revokedAt:current.enabled && !enabled ? now : current.revokedAt
+      }
+    };
+    const message = current.enabled && !enabled
+      ? `Sharing with ${privacyAudienceNames[audience]} was turned off because no fields remain selected.`
+      : 'Your sharing scope was updated.';
+    savePrivacySettings(nextSettings, message);
+  });
+});
+
+document.querySelectorAll('[data-share-toggle]').forEach(toggle => {
+  toggle.addEventListener('change', () => {
+    const audience = toggle.dataset.shareToggle;
+    const current = privacySettings[audience];
+    if (toggle.checked && current.fields.length === 0) {
+      renderPrivacySettings();
+      showToast('Choose at least one field before enabling sharing.');
+      return;
+    }
+    const now = new Date().toISOString();
+    const nextSettings = {
+      ...privacySettings,
+      [audience]:{
+        ...current,
+        enabled:toggle.checked,
+        grantedAt:toggle.checked ? now : current.grantedAt,
+        revokedAt:toggle.checked ? null : now,
+        updatedAt:now
+      }
+    };
+    savePrivacySettings(
+      nextSettings,
+      toggle.checked
+        ? `Sharing consent enabled for ${privacyAudienceNames[audience]}.`
+        : `Sharing with ${privacyAudienceNames[audience]} is off.`
+    );
+  });
+});
+
+document.getElementById('revoke-all-sharing').addEventListener('click', () => {
+  const now = new Date().toISOString();
+  let revoked = false;
+  const nextSettings = Object.fromEntries(Object.keys(privacyAudienceFields).map(audience => {
+    const current = privacySettings[audience];
+    if (current.enabled) revoked = true;
+    return [audience, {
+      ...current,
+      enabled:false,
+      revokedAt:current.enabled ? now : current.revokedAt,
+      updatedAt:current.enabled ? now : current.updatedAt
+    }];
+  }));
+  if (!revoked) {
+    showToast('Sharing is already off for all audiences.');
+    return;
+  }
+  savePrivacySettings(nextSettings, 'Sharing was turned off for all audiences.');
+});
+renderPrivacySettings();
 
 const defaultApplications = [
   {id:'sample-northstar', company:'Northstar Technologies', role:'Software Engineering Intern', location:'Chicago, IL · Hybrid', status:'Applied', deadline:'2026-11-25'},
@@ -201,14 +452,10 @@ document.querySelectorAll('[data-application-filter]').forEach(button => {
 
 const openApplicationButton = document.getElementById('open-application-modal');
 openApplicationButton.addEventListener('click', () => {
-  applicationModal.classList.add('open');
-  document.getElementById('application-company').focus();
+  openDialog(applicationModal,document.getElementById('application-company'));
 });
 document.querySelectorAll('[data-close-application]').forEach(button => {
-  button.addEventListener('click', () => applicationModal.classList.remove('open'));
-});
-applicationModal.addEventListener('click', event => {
-  if (event.target === applicationModal) applicationModal.classList.remove('open');
+  button.addEventListener('click', () => closeDialog(applicationModal));
 });
 applicationForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -236,7 +483,7 @@ applicationForm.addEventListener('submit', event => {
   });
   renderApplications();
   applicationForm.reset();
-  applicationModal.classList.remove('open');
+  closeDialog(applicationModal);
   if (saved) showToast('Application added to your tracker.');
 });
 renderApplications();
@@ -325,15 +572,11 @@ document.querySelectorAll('.mentor-draft').forEach(button => {
     mentorMessage.value = 'Hi ' + name + ',\n\nI am a Computer Science student at Illinois Tech exploring ' +
       focus + '. I came across your profile and would love to hear about your experience and any advice ' +
       'you might have for someone starting out. Would you be open to a brief conversation?\n\nThank you!';
-    mentorModal.classList.add('open');
-    mentorMessage.focus();
+    openDialog(mentorModal,mentorMessage);
   });
 });
 document.querySelectorAll('[data-close-mentor]').forEach(button => {
-  button.addEventListener('click', () => mentorModal.classList.remove('open'));
-});
-mentorModal.addEventListener('click', event => {
-  if (event.target === mentorModal) mentorModal.classList.remove('open');
+  button.addEventListener('click', () => closeDialog(mentorModal));
 });
 document.getElementById('select-mentor-message').addEventListener('click', () => {
   mentorMessage.select();
